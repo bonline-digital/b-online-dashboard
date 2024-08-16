@@ -1,0 +1,34 @@
+@import "./colors.scss";
+
+$font-family-sans-serif: "Roboto";
+
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+body {
+    background-color: $root-background-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.campaign-name {
+    max-width: 15rem;
+}
+
+.btn-primary {
+    color: white !important;
+}
+
+.btn-outline-primary:hover {
+    color: white !important;
+}
+
+.btn-outline-primary:active {
+    color: white !important;
+}
+
+.text-bg-primary {
+    color: white !important;
+}
