@@ -1,6 +1,13 @@
 import { get } from "svelte/store";
 import { admin_store, logged_in_store, rendered_rows_store, rows_store, total_values_store, total_values_tweened } from "./stores";
 
+export class AddUserData {
+    public id = -1;
+    public username = "";
+    public password = "";
+    public admin = false;
+}
+
 export class RowData {
     public id = -1;
     public campaign = "";

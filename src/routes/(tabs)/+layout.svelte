@@ -19,6 +19,8 @@
     import { fade, slide } from "svelte/transition";
     import Bubbles from "$lib/components/decorations/bubbles.svelte";
     import AddUser from "$lib/components/add-user.svelte";
+    import { onMount } from "svelte";
+    import { Modal } from "bootstrap";
 
     let title_height: number;
     let filter_visible: boolean = false;
@@ -602,24 +604,7 @@
     {/if}
 </div>
 
-<div id="add-user-modal" class="modal fade">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0">
-            <div class="modal-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <p class="fs-3 m-0">Add User</p>
-                    <button
-                        type="button"
-                        class="btn-close"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                    ></button>
-                </div>
-                <AddUser />
-            </div>
-        </div>
-    </div>
-</div>
+<AddUser />
 
 <style lang="scss">
     @import "../../lib/colors.scss";
