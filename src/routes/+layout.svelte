@@ -1,6 +1,11 @@
 <script lang="ts">
     import "$lib/styles.scss";
-    import { logged_in_store, upload_success_toast_store } from "$lib/stores";
+    import {
+        logged_in_store,
+        passwordnotmatch_toast_store,
+        upload_success_toast_store,
+        usernotfound_toast_store,
+    } from "$lib/stores";
     import { Toast } from "bootstrap";
     import { onMount } from "svelte";
     import Signin from "$lib/components/signin/signin.svelte";
@@ -9,6 +14,8 @@
     import { cubicInOut } from "svelte/easing";
 
     let upload_success_elem: HTMLDivElement;
+    let usernotfound_toast_elem: HTMLDivElement;
+    let passwordnotmatch_toast_elem: HTMLDivElement;
 
     function logout(): void {
         fetch("/api/logout").then((): void => {
@@ -18,6 +25,8 @@
 
     onMount((): void => {
         $upload_success_toast_store = new Toast(upload_success_elem);
+        $usernotfound_toast_store = new Toast(usernotfound_toast_elem);
+        $passwordnotmatch_toast_store = new Toast(passwordnotmatch_toast_elem);
     });
 </script>
 
@@ -83,6 +92,43 @@
     >
         <div class="d-flex">
             <div class="toast-body">Data upload successful</div>
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+            ></button>
+        </div>
+    </div>
+</div>
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div
+        bind:this={usernotfound_toast_elem}
+        class="toast align-items-center text-bg-danger border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+    >
+        <div class="d-flex">
+            <div class="toast-body">User not found</div>
+            <button
+                type="button"
+                class="btn-close btn-close-white me-2 m-auto"
+                data-bs-dismiss="toast"
+                aria-label="Close"
+            ></button>
+        </div>
+    </div>
+    <div
+        bind:this={passwordnotmatch_toast_elem}
+        class="toast align-items-center text-bg-danger border-0"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+    >
+        <div class="d-flex">
+            <div class="toast-body">Password does not match</div>
             <button
                 type="button"
                 class="btn-close btn-close-white me-2 m-auto"

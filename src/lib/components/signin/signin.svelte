@@ -6,8 +6,7 @@
     import { cubicInOut } from "svelte/easing";
     import { fade } from "svelte/transition";
 
-    let mounted = false;
-    let state = 0;
+    let state = 3;
     let card_child_elem: HTMLDivElement;
     const height = tweened(0, {
         duration: 250,
@@ -19,7 +18,7 @@
     }
 
     onMount((): void => {
-        mounted = true;
+        state = 0;
     });
 </script>
 
@@ -28,12 +27,10 @@
         <div style="height: {$height}px">
             <div bind:this={card_child_elem}>
                 {#if state < 2}
-                    {#if mounted}
-                        <div in:fade={{ delay: 150, duration: 250 }}>
-                            <SigninInput bind:state {onmounted} />
-                        </div>
-                    {/if}
-                {:else}
+                    <div in:fade={{ delay: 150, duration: 250 }}>
+                        <SigninInput bind:state {onmounted} />
+                    </div>
+                {:else if state == 2}
                     <div in:fade={{ duration: 250 }}>
                         <SigninFeedback {onmounted} />
                     </div>

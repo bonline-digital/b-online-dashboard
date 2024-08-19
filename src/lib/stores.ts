@@ -32,4 +32,6 @@ export const total_values_tweened = tweened({
     duration: 500,
     easing: cubicInOut
 });
-export const upload_success_toast_store: Writable<Toast> = writable();
+export const upload_success_toast_store = writable();
+export const usernotfound_toast_store = writable(new Toast(""));
+export const passwordnotmatch_toast_store = writable(new Toast(""));

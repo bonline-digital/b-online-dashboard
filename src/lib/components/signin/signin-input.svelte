@@ -1,5 +1,9 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import {
+        passwordnotmatch_toast_store,
+        usernotfound_toast_store,
+    } from "$lib/stores";
     import { onMount } from "svelte";
     import { cubicInOut } from "svelte/easing";
     import { fade, fly } from "svelte/transition";
@@ -24,8 +28,15 @@
 
                         if (success === 0) {
                             location.href = $page.url.pathname;
-                        } else if (success === 1) {
-                        } else if (success === 2) {
+                        } else {
+                            if (success === -1) {
+                                $usernotfound_toast_store.show();
+                            } else if (success === -2) {
+                                $passwordnotmatch_toast_store.show();
+                            }
+
+                            state = 0;
+                            onmounted();
                         }
                     });
                 }

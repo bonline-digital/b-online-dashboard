@@ -25,10 +25,13 @@
             body: JSON.stringify({
                 username: add_user_name.toString(),
                 password: add_user_pwd,
-                admin: add_user_admin,
+                admin: add_user_admin === true,
             }),
         }).then((response: Response) => {
             adding = false;
+
+            if (response.status !== 200) {
+            }
         });
     }
 
