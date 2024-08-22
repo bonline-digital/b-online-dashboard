@@ -19,8 +19,6 @@
     import { fade, slide } from "svelte/transition";
     import Bubbles from "$lib/components/decorations/bubbles.svelte";
     import AddUser from "$lib/components/add-user.svelte";
-    import { onMount } from "svelte";
-    import { Modal } from "bootstrap";
 
     let title_height: number;
     let filter_visible: boolean = false;
