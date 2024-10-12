@@ -92,10 +92,10 @@
                         </svg>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li>
+                        <!-- <li>
                             <p class="fs-4 mx-3 mb-1">Siam</p>
-                        </li>
-                        <li>
+                        </li> -->
+                        <!-- <li>
                             <button
                                 class="dropdown-item"
                                 data-bs-toggle="modal"
@@ -103,7 +103,7 @@
                             >
                                 Change Password
                             </button>
-                        </li>
+                        </li> -->
                         <li>
                             <button on:click={logout} class="dropdown-item">
                                 <span>Logout</span>
